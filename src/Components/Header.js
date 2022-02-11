@@ -1,20 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Routes,
+} from "react-router-dom";
+import Home from "../pages/Home";
+import Collection from "../pages/Collection";
+import Product from "../pages/Product";
 class Header extends React.Component {
   render() {
     return (
-      <div>
-        <span>
-          <Link to="/">Home</Link>{" "}
-        </span>
-        <span>
-          <Link to="/about"> About</Link>{" "}
-        </span>
-        <span>
-          <Link to="/contact">Contact us</Link>{" "}
-        </span>
-        <span>Services</span>
-      </div>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/collection" element={<Collection />} />
+          <Route path="/product" element={<Product />} />
+        </Routes>
+      </Router>
     );
   }
 }
